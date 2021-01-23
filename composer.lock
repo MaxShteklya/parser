@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50114089d7de41b6fbcc4d646295169a",
+    "content-hash": "5568f34f52764eeb1cc1e09288c5cfc5",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -165,6 +165,50 @@
                 "source": "https://github.com/cebe/markdown"
             },
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "cn13/yii2-simple_html_dom",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cn13/yii2-simple_html_dom.git",
+                "reference": "837197f1a244971d190426d1b9bcc850baee35c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cn13/yii2-simple_html_dom/zipball/837197f1a244971d190426d1b9bcc850baee35c1",
+                "reference": "837197f1a244971d190426d1b9bcc850baee35c1",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "cn13\\simplehtmldom\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "CN13",
+                    "email": "m@cn13.ru"
+                }
+            ],
+            "description": "Simple HTML Dom YII2 PHP7.3",
+            "keywords": [
+                "extension",
+                "php7.3",
+                "simplehtmldom",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/cn13/yii2-simple_html_dom/issues",
+                "source": "https://github.com/cn13/yii2-simple_html_dom/tree/master"
+            },
+            "time": "2019-07-02T08:16:11+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -5237,7 +5281,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "cn13/yii2-simple_html_dom": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

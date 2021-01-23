@@ -8,6 +8,8 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use backend\models\Parser;
 
+
+
 /**
  * Parser controller
  */
@@ -61,12 +63,17 @@ class ParserController extends Controller
      */
     public function actionIndex()
     {
-        //exit("HERE");
+        $model = new Parser();
+        $model->startParsing("https://www.alcopa-auction.fr/en/");
+
+
+        //echo "<pre>";
+        exit();
         return $this->render('index');
     }
 
-    public function actionParser(){
+    public function actionParse(){
         //exit("HERE");
-        return $this->render('parser');
+        return $this->render('parse');
     }
 }

@@ -49,7 +49,7 @@ class Parser extends Model
                     $auction_id = array_slice(explode('/', $href), -1)[0];
 
                     $exists = Auctions::find()->where( [ 'room_id' => $auction_id ] )->exists();
-
+                    array_push($urls, $href);
                     if(!$exists) {
                         $auction = new Auctions();
                         $auction->room_id = $auction_id;
@@ -59,7 +59,7 @@ class Parser extends Model
                         $auction->room_lots = $lots;
                         $auction->room_place = $place;
                         if($auction->save()){
-                            array_push($urls, $href);
+                            //array_push($urls, $href);
                         }
                     }
                 }
@@ -70,10 +70,38 @@ class Parser extends Model
     }
 
     public function parseCars($hrefs, $url){
-        foreach ($hrefs as $href){
+        foreach ($hrefs as $href){ // EVERY ROOM
             $href = str_replace('/en/', '', $href);
             $link = $url.$href;
-            echo $link . "<br>";
+
+            $html = $this->get_curl($link);
+            $json = stristr($html, "window.Alcopa.searchResultsJSONString = '");
+            $json = stristr($json, "';", true);
+            $json = str_replace("window.Alcopa.searchResultsJSONString = '", '', $json);
+            $json = str_replace("';", '', $json);
+            $json = preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
+                return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UTF-16BE');
+            }, $json);
+            $json = str_replace('\\', '', $json);
+
+            $all_cars = json_decode($json);
+            //exit();
+            foreach ($all_cars as $cars_category){ // EVERY CATEGORY
+                foreach ($cars_category as $car){ // EVERY CAR
+                    echo "<pre>";
+                    var_dump($car->category);
+                    break;
+                }
+
+            }
+            //echo "NEW ROOM";
+            //exit();
+
+
+
+
+            //break;
+
         }
     }
 

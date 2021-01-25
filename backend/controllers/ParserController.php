@@ -72,8 +72,7 @@ class ParserController extends Controller
         return $this->render('index');
     }
 
-    public function actionParse(){
-        //exit("HERE");
-        return $this->render('parse');
+    public function actionParseCar(){
+        exit("HERE");
     }
 }
